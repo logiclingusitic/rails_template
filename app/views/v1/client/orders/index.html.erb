@@ -1,0 +1,20 @@
+<%# <p class="text-green-500"><%= notice %>
+
+<% if !current_user.orders.empty? %>
+  <h1 class="text-2xl font-bold mb-4">Orders</h1>
+<% else %>
+  <h1 class="text-2xl font-bold mb-4">No New Orders!</h1>
+<% end %>
+
+<div id="orders">
+  <% if current_user %>
+    <% current_user.orders.each do |order| %>
+
+      <%= render order %>
+      <p class=" mt-5 mb-5">
+        <%= link_to "Show this order", v1_client_order_path(order), class: " bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+

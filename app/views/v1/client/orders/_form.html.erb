@@ -1,0 +1,37 @@
+<%= form_with(model: order, url: v1_client_orders_path) do |form| %>
+  <% if order.errors.any? %>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 mb-4 rounded">
+      <h2 class="font-bold mb-2"><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul class="list-disc list-inside">
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :customer_name, class: "block font-bold" %>
+    <%= form.text_field :customer_name, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :shipping_address, class: "block font-bold" %>
+    <%= form.text_area :shipping_address, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :phone_number, class: "block font-bold" %>
+    <%= form.text_field :phone_number, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+  </div>
+
+  <%# <div class="mb-4">
+    <%= form.label :payment_method, class: "block font-bold" %>
+    <%# <%= form.text_field :payment_method, class: "w-full border border-gray-300 rounded px-3 py-2" %>
+  <%# </div> %>
+
+  <div>
+    <%= form.submit class: "bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded font-bold" %>
+  </div>
+<% end %>

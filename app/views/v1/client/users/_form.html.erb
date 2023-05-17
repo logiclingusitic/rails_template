@@ -1,0 +1,27 @@
+<%= form_with(model: user, url: v1_client_users_path) do |form| %>
+  <% if user.errors.any? %>
+    <div class="text-red-500">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :email, class: "block" %>
+    <%= form.text_field :email, class: "border border-gray-300 px-4 py-2 rounded-md w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :password, class: "block" %>
+    <%= form.text_field :password_digest, class: "border border-gray-300 px-4 py-2 rounded-md w-full" %>
+  </div>
+
+  <div>
+    <%= form.submit(class: "bg-blue-500 text-white px-6 py-3 rounded font-semibold hover:bg-blue-600") %>
+  </div>
+<% end %>

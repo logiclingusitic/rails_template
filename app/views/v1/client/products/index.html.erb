@@ -1,0 +1,19 @@
+<%# <p class="text-green-500"><%= notice %>
+
+<% if current_user %>
+<%= link_to "Create New product", new_v1_client_product_path, class: "bg-blue-500 text-white px-6 py-3 rounded font-semibold hover:bg-blue-600" %>
+<%end %>
+
+<h1 class="text-4xl font-bold mb-6 mt-10">Products</h1>
+
+<div id="products" class="grid grid-cols-3 gap-4 mt-16">
+  <% @products.each do |product| %>
+    <div class="mb-4">
+      <%= render product %>
+      <p class="mt-4">
+        <%= link_to "Show this product", v1_client_product_path(product), class: "bg-blue-500 text-white px-6 py-3 rounded font-semibold hover:bg-blue-600" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,36 @@
+<div id="<%= dom_id product %>" class="bg-gray-100 p-4 rounded-md ">
+  <p>
+    <strong class="font-semibold">Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong class="font-semibold">Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong class="font-semibold">Price: $</strong>
+    <%= product.price %>
+  </p>
+
+<div class="mx-auto">
+  <p class="flex justify-center items-center">
+    <img src="<%= product.image %>" alt="Product Image" class="mt-2 rounded-full h-36 w-36">
+  </p>
+</div>
+<% if current_user %>
+
+    <% if current_user.cart.cart_items.exists?(product_id: product.id) %>
+
+      <%= button_to "Already Added", v1_client_cart_items_path(product_id: product.id), method: :post, class: "mt-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-400" , disabled: current_user.cart.cart_items.exists?(product_id: product.id) %>
+
+  <% else %>
+
+    <%= button_to "Add to Cart", v1_client_cart_items_path(product_id: product.id), method: :post, class: "mt-4 bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-green-400" %>
+
+  <% end %>
+<% end %>
+
+</div>
+
