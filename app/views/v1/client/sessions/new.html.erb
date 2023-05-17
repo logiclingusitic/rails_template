@@ -1,0 +1,18 @@
+
+
+<%= form_with(url: v1_client_login_path, method: :post, class: "mb-4 mt-10 mx-auto max-w-2xl") do |form| %>
+  <div class="mb-4">
+  <h1 class="text-5xl font-bold text-center mb-10">Login</h1>
+    <%= form.label :email, class: "block font-semibold text-gray-800" %>
+    <%= form.email_field :email, class: "w-full px-4 py-2 rounded border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :password, class: "block font-semibold text-gray-800" %>
+    <%= form.password_field :password, class: "w-full px-4 py-2 rounded border border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" %>
+  </div>
+
+  <div>
+    <%= form.submit 'Log in', class: "bg-indigo-500 text-white px-6 py-2 rounded font-semibold hover:bg-indigo-600" %>
+  </div>
+<% end %>

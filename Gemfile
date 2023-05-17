@@ -6,6 +6,9 @@ ruby "3.2.2"
 gem "bootsnap", require: false
 gem "cssbundling-rails"
 gem "interactor-rails", "~> 2.0"
+gem 'bcrypt'
+gem 'activestorage', '~> 7.0'
+
 gem "jbuilder"
 gem "jsbundling-rails"
 gem "pg", "~> 1.1"

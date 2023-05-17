@@ -10,7 +10,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <body class= " bg-slate-400">
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/messages' %>
+
+    <div class="mx-auto max-w-6xl mt-10 mb-20">
+  <%= yield %>
+</div>
+
+    <%= render 'layouts/footer' %>  </body>
 </html>

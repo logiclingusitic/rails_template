@@ -1,0 +1,31 @@
+<nav class="bg-black">
+  <div class="container mx-auto px-4 py-5 flex items-center justify-between">
+    <ul class="flex space-x-4">
+      <li><a href="/v1/client/products" class="text-white hover:text-gray-200 font-bold text-lg">Dashboard</a></li>
+      <li><a href="/v1/client/products" class="text-white hover:text-gray-200 font-bold text-lg"><small>Products</small></a></li>
+      <li><a href="/v1/client/orders" class="text-white hover:text-gray-200 font-bold text-lg"><small>Orders History</small></a></li>
+      <% if current_user %>
+      <li><a href="/v1/client/users/<%= current_user.id %>" class="text-white hover:text-gray-200 font-bold text-lg"><small>Profile</small></a></li>
+      <%end%>
+    </ul>
+
+    <div>
+      <% if current_user %>
+        <div class="flex items-center">
+          <a class="mr-4 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="<%= v1_client_user_cart_path(current_user) %>">
+            <span class="[&>svg]:w-10">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="h-7 w-7">
+                <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+              </svg>
+            </span>
+          </a>
+
+            <%= button_to "Logout", v1_client_logout_path, method: :delete, class: "text-white hover:text-gray-200 font-bold text-lg ml-4" %>
+        </div>
+  <% else %>
+        <%= link_to "Log In", v1_client_login_path, class: "text-white hover:text-gray-200 font-bold text-lg ml-4" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
