@@ -1,0 +1,10 @@
+<%# <p class="text-green-500"><%= notice %>
+<div class= "mx-auto max-w-3xl">
+<%= render @user %>
+
+<div class="mt-4">
+  <%= link_to "Edit this user", edit_v1_client_user_path(@user), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mr-2" %>
+  <%= link_to "Back to users", v1_client_users_path, class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mr-2" %>
+  <%# <%= button_to "Destroy this user", v1_client_user_path(@user), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 mt-10" %> 
+</div>
+</div>

@@ -1,0 +1,37 @@
+
+<div id="<%= dom_id(product) %>" class="bg-gray-100 p-4 rounded-md mt-5">
+  <p>
+    <strong class="font-semibold">Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong class="font-semibold">Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong class="font-semibold">Price: $</strong>
+    <%= product.price %>
+  </p>
+
+  <div class="mx-auto">
+    <p class="flex justify-center items-center">
+      <img src="<%= product.image %>" alt="Product Image" class="mt-2 rounded-full h-36 w-36">
+    </p>
+  </div>
+  <% cart_item = current_user.cart_items.where(product: product).first %>
+  <%# <%= button_to "Remove from Cart", cart_item_path(cart_item), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-400" %>
+
+
+
+
+<div class="inline-flex">
+  <%= button_to "+", v1_client_cart_items_path(product_id: product.id), method: :post, class: "bg-red-300 hover:bg-red-400 text-red-800 font-bold py-2 px-4 rounded-l" %>
+  <span class="mx-4 mt-2"><%= current_user.cart_items.where(product: product).first.quantity %></span>
+  <%= button_to "-", v1_client_cart_item_path(cart_item), method: :delete, class: "bg-green-300 hover:bg-green-400 text-green-800 font-bold py-2 px-4 rounded-r" %>
+</div>
+
+
+</div>
+

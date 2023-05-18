@@ -1,0 +1,14 @@
+<%# <p class="text-green-500"><%= notice %>
+<div class="mx-auto max-w-3xl">
+<%= render @product %>
+
+<div class="mt-4">
+<% if current_user %>
+  <%= link_to "Edit this product", edit_v1_client_product_path(@product), class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-400" %> |
+  <% end %>
+  <%= link_to "Back to products", v1_client_products_path, class: "ml-2 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-400" %>
+<% if current_user %>
+  <%= button_to "Destroy this product", v1_client_product_path(@product), method: :delete, data: { confirm: "Are you sure?" }, class: "mt-4 bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-400" %>
+<% end %>
+</div>
+</div>
